@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: zomato-postgres
+    environment:
+      POSTGRES_USER: zomato
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: zomato
+    ports:
+      - "127.0.0.1:5434:5432"
+    volumes:
+      - zomato_postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  zomato_postgres_data:
+
+    # docker cp "D:\Desktop\ZOMATO_PROJECT\zomato-ai-data-engineering-end-to-end-project-main\zomato-ai-data-engineering-end-to-end-project-main\data" postgress_container:/tmp/datasets
+
+    #docker exec postgress_container ls -R /tmp/datasets
